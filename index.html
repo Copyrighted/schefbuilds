@@ -5,23 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#202329">
-  <meta name="description" content="Tyler Scheffler — software engineer and game developer. Backend systems, payments engineering, and commercial game development. Available for contract work.">
-  <title>Tyler Scheffler — Software Engineer &amp; Game Developer</title>
+  <meta name="theme-color" content="#151a1b">
+
+  <meta name="description" content="Tyler Scheffler — software engineer and game developer specializing in backend systems, payment infrastructure, and games. Available for contract work.">
+
+  <title>Tyler Scheffler — Software Engineer</title>
+
   <style>
     :root {
       color-scheme: dark;
-      --background: #17191d;
-      --surface: #202329;
-      --text: #f3f4f6;
-      --muted: #b2b7c1;
-      --quiet: #969da8;
-      --rule: #383d45;
-      --link: #a2c8ef;
-      --available: #87cca2;
+      --bg: #151a1b;
+      --text: #e0ded4;
+      --muted: #aeb2ab;
+      --quiet: #88918c;
+      --line: #35403d;
+      --accent: #b7c6ad;
+      --link: #d2c8ab;
     }
 
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
     }
 
@@ -31,17 +33,18 @@
 
     body {
       margin: 0;
-      background: var(--background);
+      background: var(--bg);
       color: var(--text);
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont,
-            "Segoe UI", Inter, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: var(--link);
       text-decoration: none;
-      text-underline-offset: .2em;
+      text-underline-offset: .25em;
     }
 
     a:hover {
@@ -50,202 +53,272 @@
 
     a:focus-visible {
       outline: 2px solid var(--link);
-      outline-offset: 4px;
-      border-radius: 2px;
+      outline-offset: 5px;
     }
 
-    .page {
-      width: min(100% - 36px, 900px);
-      margin: 28px auto;
-      padding: clamp(24px, 6vw, 64px);
-      background: var(--surface);
-      border: 1px solid #343941;
-    }
-
-    .topbar, .bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+    .shell {
+      max-width: 1080px;
+      margin: auto;
+      padding: 38px clamp(24px, 6vw, 72px) 34px;
     }
 
     .topbar {
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 27px;
+      border-bottom: 1px solid var(--line);
     }
 
     .name {
-      font-size: .98rem;
       font-weight: 650;
-      letter-spacing: -.025em;
+      font-size: 15px;
+      letter-spacing: -.02em;
+      color: var(--text);
     }
 
-    nav {
+    .nav {
       display: flex;
-      gap: 22px;
+      gap: 28px;
     }
 
-    nav a {
+    .nav a {
+      font-size: 13px;
       color: var(--muted);
-      font-size: .82rem;
     }
 
     .hero {
-      padding: 58px 0 55px;
+      padding: 38px 0 42px;
     }
 
-    .availability {
+    .eyebrow,
+    .section-index,
+    .work-number,
+    .work-kind {
+      font-family: ui-monospace, SFMono-Regular,
+                   Consolas, "Liberation Mono", monospace;
+    }
+
+    .eyebrow {
       display: flex;
+      gap: 11px;
       align-items: center;
-      gap: 9px;
-      color: var(--available);
-      font-size: .8rem;
-      font-weight: 550;
-      margin: 0 0 20px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .03em;
+      margin: 0 0 13px;
     }
 
-    .availability::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      flex: none;
+    .status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: #79c897;
+      background: #a4bb9c;
     }
 
     h1 {
-      max-width: 680px;
-      margin: 0 0 20px;
-      font-size: clamp(2rem, 6vw, 3.2rem);
-      line-height: 1.16;
-      letter-spacing: -.055em;
-      font-weight: 650;
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 580;
+      letter-spacing: -.04em;
+      line-height: 1.2;
+      margin: 0 0 18px;
+      max-width: 860px;
+    }
+
+    h1 .second {
+      color: #a5aaa3;
+    }
+
+    .hero-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px 35px;
     }
 
     .intro {
-      max-width: 570px;
+      max-width: 520px;
+      font-size: 14px;
+      line-height: 1.65;
       color: var(--muted);
-      font-size: .97rem;
-      line-height: 1.75;
-      margin: 0 0 24px;
+      margin: 0;
     }
 
-    .profile-links {
+    .quicklinks {
       display: flex;
+      gap: 21px;
       flex-wrap: wrap;
-      gap: 12px 22px;
-      font-size: .87rem;
+      font-size: 13px;
       font-weight: 500;
     }
 
-    .section-title {
-      display: flex;
-      justify-content: space-between;
+    .work-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1fr) auto;
+      gap: 12px;
       align-items: baseline;
-      gap: 14px;
-      border-top: 1px solid var(--rule);
-      padding: 19px 0 4px;
+      padding: 26px 0 18px;
+    }
+
+    .section-index {
+      color: var(--accent);
+      font-size: 11px;
     }
 
     h2 {
       margin: 0;
-      font-size: 1.14rem;
-      line-height: 1.35;
-      letter-spacing: -.025em;
-      font-weight: 650;
+      font-size: 23px;
+      font-weight: 600;
+      letter-spacing: -.035em;
     }
 
-    .section-note {
-      font-size: .73rem;
+    .section-description {
+      font-size: 12px;
       color: var(--quiet);
     }
 
-    .entry {
-      border-bottom: 1px solid var(--rule);
-      padding: 20px 0;
+    .work-item {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1fr) 180px;
+      column-gap: 12px;
+      padding: 24px 0 26px;
+      border-top: 1px solid var(--line);
+      align-items: start;
     }
 
-    .entry:last-child {
-      border-bottom: 0;
-    }
-
-    .entry-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 14px;
+    .work-number {
+      padding-top: 6px;
+      color: var(--quiet);
+      font-size: 12px;
     }
 
     h3 {
-      font-size: .98rem;
-      letter-spacing: -.01em;
-      line-height: 1.5;
-      margin: 0;
-      font-weight: 650;
+      margin: 0 0 8px;
+      font-size: clamp(21px, 2.6vw, 25px);
+      line-height: 1.2;
+      font-weight: 570;
+      letter-spacing: -.035em;
     }
 
-    .role {
-      font-size: .74rem;
-      color: var(--quiet);
-      text-align: right;
-    }
-
-    .entry p {
-      margin: 6px 0 0;
+    .work-desc {
       color: var(--muted);
-      font-size: .85rem;
+      margin: 0;
+      font-size: 14px;
       line-height: 1.65;
+      max-width: 590px;
+    }
+
+    .work-kind {
+      font-size: 11px;
+      color: var(--accent);
+      padding-top: 7px;
+      text-align: right;
+      letter-spacing: .02em;
     }
 
     .contact {
-      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      border-top: 1px solid var(--line);
+      padding: 38px 0 45px;
+      margin-top: 35px;
+    }
+
+    .contact h2 {
+      font-size: 22px;
+      margin: 0 0 5px;
     }
 
     .contact p {
+      margin: 0;
       color: var(--muted);
-      font-size: .88rem;
-      margin: 14px 0 0;
+      font-size: 13px;
     }
 
-    .bottom {
-      margin-top: 46px;
+    .contact-link {
+      flex: none;
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
       padding-top: 20px;
-      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
       color: var(--quiet);
-      font-size: .75rem;
+      font-size: 11px;
     }
 
-    @media (max-width: 550px) {
-      .page {
-        width: 100%;
-        margin: 0;
-        padding: 25px 22px 36px;
-        min-height: 100vh;
-        border: 0;
+    @media (max-width: 650px) {
+      .shell {
+        padding: 26px 24px;
       }
 
       .topbar {
-        align-items: flex-start;
+        padding-bottom: 19px;
       }
 
-      nav {
-        gap: 15px;
+      .nav {
+        gap: 19px;
       }
 
       .hero {
-        padding: 46px 0 42px;
+        padding: 34px 0 36px;
       }
 
-      .intro {
-        font-size: .93rem;
+      h1 {
+        font-size: clamp(26px, 7vw, 31px);
       }
 
-      .section-note {
+      .section-head {
+        grid-template-columns: 35px 1fr;
+      }
+
+      .section-description {
         display: none;
       }
 
-      .role {
-        font-size: .7rem;
+      .work-item {
+        grid-template-columns: 35px 1fr;
+        padding: 24px 0 26px;
+      }
+
+      .work-kind {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: left;
+        padding: 0 0 8px;
+        font-size: 10px;
+      }
+
+      .work-body {
+        grid-column: 2;
+        grid-row: 3;
+      }
+
+      .work-number {
+        grid-column: 1;
+        grid-row: 1 / 4;
+      }
+
+      .work-desc {
+        font-size: 13px;
+      }
+
+      .contact {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
       }
     }
 
@@ -258,112 +331,149 @@
 </head>
 
 <body>
-  <div class="page">
+  <div class="shell">
 
     <header class="topbar">
-      <div class="name">Tyler Scheffler</div>
-      <nav aria-label="Main navigation">
+      <a class="name" href="#top">Tyler Scheffler</a>
+
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero" aria-labelledby="page-title">
-        <p class="availability">Available for contract work</p>
+    <main id="top">
 
-        <h1 id="page-title">
-          Software Engineer<br>
-          &amp; Game Developer.
+      <section class="hero" aria-labelledby="intro-heading">
+        <p class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          Available for contract work
+        </p>
+
+        <h1 id="intro-heading">
+          Software engineer
+          <span class="second">&amp; game developer.</span>
         </h1>
 
-        <p class="intro">
-          I build backend systems, payment infrastructure, and games.
-          Experienced in production financial software and commercial
-          game development.
-        </p>
+        <div class="hero-bottom">
+          <p class="intro">
+            I build production software and games—from payment
+            processing systems and card-network integrations to
+            commercial game releases and real-time simulation.
+          </p>
 
-        <!-- Replace these with your actual profile links -->
-        <div class="profile-links">
-          <a href="https://github.com/Copyrighted">
-            GitHub ↗
-          </a>
-          <a href="https://www.linkedin.com/in/tscheff/">
-            LinkedIn ↗
-          </a>
+          <div class="quicklinks" aria-label="Professional links">
+            <a href="https://github.com/Copyrighted">
+              GitHub ↗
+            </a>
+
+            <!-- Replace with your LinkedIn profile -->
+            <a href="https://www.linkedin.com/in/REPLACE_WITH_PROFILE/">
+              LinkedIn ↗
+            </a>
+
+            <a href="#contact">Contact ↗</a>
+          </div>
         </div>
       </section>
 
-      <section id="work" aria-labelledby="work-title">
-        <div class="section-title">
-          <h2 id="work-title">Selected Work</h2>
-          <span class="section-note">Experience &amp; projects</span>
+      <section id="work"
+               class="work-section"
+               aria-labelledby="work-heading">
+
+        <div class="section-head">
+          <span class="section-index">01 /</span>
+          <h2 id="work-heading">Selected work</h2>
+          <span class="section-description">
+            Professional &amp; independent
+          </span>
         </div>
 
-        <article class="entry">
-          <div class="entry-top">
+        <article class="work-item">
+          <span class="work-number">01</span>
+
+          <div class="work-body">
             <h3>PayiQ</h3>
-            <span class="role">Backend Engineering</span>
+
+            <p class="work-desc">
+              Built ISO 8583 messaging infrastructure for Visa,
+              Mastercard, Discover, and Amex. Owned the Visa and
+              Mastercard certification process, enabling millions
+              in transaction revenue.
+            </p>
           </div>
-          <p>
-            Led Visa and Mastercard certifications.
-            Built ISO 8583 payment integrations.
-          </p>
+
+          <span class="work-kind">BACKEND / FINTECH</span>
         </article>
 
-        <article class="entry">
-          <div class="entry-top">
+        <article class="work-item">
+          <span class="work-number">02</span>
+
+          <div class="work-body">
             <h3>Don't Fret</h3>
-            <span class="role">Gameplay Programmer</span>
+
+            <p class="work-desc">
+              Gameplay programming on a title published by
+              Behaviour Interactive.
+            </p>
           </div>
-          <p>
-            Gameplay programming on a title published by
-            Behaviour Interactive.
-          </p>
+
+          <span class="work-kind">GAMEPLAY PROGRAMMER</span>
         </article>
 
-        <article class="entry">
-          <div class="entry-top">
+        <article class="work-item">
+          <span class="work-number">03</span>
+
+          <div class="work-body">
             <h3>Trash Wars</h3>
-            <span class="role">Solo Developer</span>
+
+            <p class="work-desc">
+              Independently developed and released a
+              commercial game on Steam.
+            </p>
           </div>
-          <p>
-            Independently developed and released a
-            commercial game on Steam.
-          </p>
+
+          <span class="work-kind">SOLO DEVELOPER</span>
         </article>
 
-        <article class="entry">
-          <div class="entry-top">
+        <article class="work-item">
+          <span class="work-number">04</span>
+
+          <div class="work-body">
             <h3>Untitled God Game</h3>
-            <span class="role">Rust / Bevy</span>
+
+            <p class="work-desc">
+              Custom GPU rendering, procedural worlds,
+              and simulation systems.
+            </p>
           </div>
-          <p>
-            Custom GPU rendering, procedural worlds,
-            and simulation systems.
-          </p>
+
+          <span class="work-kind">RUST / BEVY</span>
         </article>
+
       </section>
 
-      <section id="contact" class="contact"
-               aria-labelledby="contact-title">
-        <div class="section-title">
-          <h2 id="contact-title">Contact</h2>
+      <section id="contact"
+               class="contact"
+               aria-labelledby="contact-heading">
+
+        <div>
+          <h2 id="contact-heading">Work with me</h2>
+          <p>
+            Available for backend, payments, and
+            game development contracts.
+          </p>
         </div>
 
-        <p>
-          Available for backend, payments, and
-          game development contracts.
-        </p>
+        <a class="contact-link"
+           href="mailto:contact@schefbuilds.dev">
+          contact@schefbuilds.dev ↗
+        </a>
 
-        <!-- Replace with your email address -->
-        <p>
-          <a href="mailto:REPLACE_WITH_EMAIL">Email me ↗</a>
-        </p>
       </section>
     </main>
 
-    <footer class="bottom">
+    <footer>
       <span>© 2026 Tyler Scheffler</span>
       <span>schefbuilds.dev</span>
     </footer>
