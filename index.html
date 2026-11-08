@@ -1,0 +1,373 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#202329">
+  <meta name="description" content="Tyler Scheffler — software engineer and game developer. Backend systems, payments engineering, and commercial game development. Available for contract work.">
+  <title>Tyler Scheffler — Software Engineer &amp; Game Developer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #17191d;
+      --surface: #202329;
+      --text: #f3f4f6;
+      --muted: #b2b7c1;
+      --quiet: #969da8;
+      --rule: #383d45;
+      --link: #a2c8ef;
+      --available: #87cca2;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Inter, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      text-underline-offset: .2em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .page {
+      width: min(100% - 36px, 900px);
+      margin: 28px auto;
+      padding: clamp(24px, 6vw, 64px);
+      background: var(--surface);
+      border: 1px solid #343941;
+    }
+
+    .topbar, .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar {
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .name {
+      font-size: .98rem;
+      font-weight: 650;
+      letter-spacing: -.025em;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .hero {
+      padding: 58px 0 55px;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--available);
+      font-size: .8rem;
+      font-weight: 550;
+      margin: 0 0 20px;
+    }
+
+    .availability::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: none;
+      border-radius: 50%;
+      background: #79c897;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      line-height: 1.16;
+      letter-spacing: -.055em;
+      font-weight: 650;
+    }
+
+    .intro {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: .97rem;
+      line-height: 1.75;
+      margin: 0 0 24px;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      font-size: .87rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      border-top: 1px solid var(--rule);
+      padding: 19px 0 4px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.14rem;
+      line-height: 1.35;
+      letter-spacing: -.025em;
+      font-weight: 650;
+    }
+
+    .section-note {
+      font-size: .73rem;
+      color: var(--quiet);
+    }
+
+    .entry {
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+    }
+
+    .entry:last-child {
+      border-bottom: 0;
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    h3 {
+      font-size: .98rem;
+      letter-spacing: -.01em;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 650;
+    }
+
+    .role {
+      font-size: .74rem;
+      color: var(--quiet);
+      text-align: right;
+    }
+
+    .entry p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.65;
+    }
+
+    .contact {
+      margin-top: 22px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin: 14px 0 0;
+    }
+
+    .bottom {
+      margin-top: 46px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      color: var(--quiet);
+      font-size: .75rem;
+    }
+
+    @media (max-width: 550px) {
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 25px 22px 36px;
+        min-height: 100vh;
+        border: 0;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .hero {
+        padding: 46px 0 42px;
+      }
+
+      .intro {
+        font-size: .93rem;
+      }
+
+      .section-note {
+        display: none;
+      }
+
+      .role {
+        font-size: .7rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <div class="name">Tyler Scheffler</div>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="availability">Available for contract work</p>
+
+        <h1 id="page-title">
+          Software Engineer<br>
+          &amp; Game Developer.
+        </h1>
+
+        <p class="intro">
+          I build backend systems, payment infrastructure, and games.
+          Experienced in production financial software and commercial
+          game development.
+        </p>
+
+        <!-- Replace these with your actual profile links -->
+        <div class="profile-links">
+          <a href="https://github.com/REPLACE_WITH_GITHUB_USERNAME">
+            GitHub ↗
+          </a>
+          <a href="https://www.linkedin.com/in/REPLACE_WITH_LINKEDIN_PROFILE/">
+            LinkedIn ↗
+          </a>
+        </div>
+      </section>
+
+      <section id="work" aria-labelledby="work-title">
+        <div class="section-title">
+          <h2 id="work-title">Selected Work</h2>
+          <span class="section-note">Experience &amp; projects</span>
+        </div>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>PayiQ</h3>
+            <span class="role">Backend Engineering</span>
+          </div>
+          <p>
+            Led Visa and Mastercard certifications.
+            Built ISO 8583 payment integrations.
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>Don't Fret</h3>
+            <span class="role">Gameplay Programmer</span>
+          </div>
+          <p>
+            Gameplay programming on a title published by
+            Behaviour Interactive.
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>Trash Wars</h3>
+            <span class="role">Solo Developer</span>
+          </div>
+          <p>
+            Independently developed and released a
+            commercial game on Steam.
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>Untitled God Game</h3>
+            <span class="role">Rust / Bevy</span>
+          </div>
+          <p>
+            Custom GPU rendering, procedural worlds,
+            and simulation systems.
+          </p>
+        </article>
+      </section>
+
+      <section id="contact" class="contact"
+               aria-labelledby="contact-title">
+        <div class="section-title">
+          <h2 id="contact-title">Contact</h2>
+        </div>
+
+        <p>
+          Available for backend, payments, and
+          game development contracts.
+        </p>
+
+        <!-- Replace with your email address -->
+        <p>
+          <a href="mailto:REPLACE_WITH_EMAIL">Email me ↗</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="bottom">
+      <span>© 2026 Tyler Scheffler</span>
+      <span>schefbuilds.dev</span>
+    </footer>
+
+  </div>
+</body>
+</html>
