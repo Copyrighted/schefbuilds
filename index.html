@@ -314,35 +314,16 @@
       margin: 0 0 12px;
     }
 
-    .payiq-contributions {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 23px;
-      display: grid;
-      gap: 15px;
-    }
-
-    .payiq-contributions strong {
-      display: block;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-
-    .payiq-contributions p {
-      margin: 0;
-      font-size: 13px;
-    }
+    /* Results and published milestones */
 
     .payiq-milestones {
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
+      margin: 0 0 22px;
     }
 
     .payiq-milestones > p {
-      font-size: 12px;
-      margin: -5px 0 12px;
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0 0 12px;
     }
 
     .payiq-milestones ol {
@@ -375,8 +356,37 @@
       margin: 3px 0 0;
     }
 
+    /* Engineering contributions */
+
+    .payiq-engineering {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .payiq-contributions {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 15px;
+    }
+
+    .payiq-contributions strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .payiq-contributions p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
     .payiq-tech {
-      margin: 18px 0 0;
+      margin: 20px 0 0;
       padding-top: 13px;
       border-top: 1px solid var(--line);
       color: var(--quiet);
@@ -623,84 +633,32 @@
               <summary>
 
                 <span class="when-closed">
-                  View contributions &amp; results
+                  View results &amp; contributions
                 </span>
 
                 <span class="when-open">
-                  Hide contributions &amp; results
+                  Hide results &amp; contributions
                 </span>
 
               </summary>
 
               <div class="payiq-content">
 
-                <h4>Engineering contributions</h4>
-
-                <ul class="payiq-contributions">
-
-                  <li>
-
-                    <strong>Payment network integrations</strong>
-
-                    <p>
-                      Built an ISO 8583 messaging framework for Visa,
-                      Mastercard, Discover, and Amex payment
-                      integrations.
-                    </p>
-
-                  </li>
-
-                  <li>
-
-                    <strong>
-                      Certification &amp; production payments
-                    </strong>
-
-                    <p>
-                      Owned the Visa and Mastercard certification
-                      process, coordinating specifications, testing,
-                      and technical issues across teams.
-                      Implemented authorizations, reversals,
-                      refunds, and clearing.
-                    </p>
-
-                  </li>
-
-                  <li>
-
-                    <strong>Distributed backend &amp; APIs</strong>
-
-                    <p>
-                      Maintained regional payment processing services
-                      in Groovy/Java. Developed REST APIs, including
-                      serialization and validation logic.
-                    </p>
-
-                  </li>
-
-                  <li>
-
-                    <strong>Testing &amp; developer support</strong>
-
-                    <p>
-                      Wrote Spock unit tests, supported regression
-                      testing in Postman, and onboarded engineers.
-                      Wrote a one-off Python script that reduced a
-                      feature-testing task from 30 minutes to 2 minutes.
-                    </p>
-
-                  </li>
-
-                </ul>
+                <!-- Results first -->
 
                 <section class="payiq-milestones"
-                         aria-label="Published milestones">
+                         aria-labelledby="payiq-results-heading">
 
-                  <h4>Published milestones</h4>
+                  <h4 id="payiq-results-heading">
+                    Results &amp; milestones
+                  </h4>
 
                   <p>
-                    Quisitive announcements documenting the
-                    platform's progress.
+                    My payment integration and certification work
+                    directly contributed to PayiQ achieving Visa and
+                    Mastercard approval and launching live transaction
+                    processing. The following public announcements
+                    document those results.
                   </p>
 
                   <ol>
@@ -713,14 +671,16 @@
 
                       <div>
 
-                        <a href="https://pay-iq.com/wp-content/uploads/2022/10/11-mastercard-cert.pdf"
+                        <a href="https://quisitive.com/quisitive-receives-mastercard-certification-for-its-ledgerpay-platform/"
                            target="_blank"
                            rel="noopener noreferrer">
                           Mastercard certification ↗
                         </a>
 
                         <p>
-                          Approved to process Mastercard transactions.
+                          Achieved Mastercard certification,
+                          enabling PayiQ to process transactions
+                          directly through the Mastercard network.
                         </p>
 
                       </div>
@@ -742,7 +702,8 @@
                         </a>
 
                         <p>
-                          Approved to process Visa credit and
+                          Achieved Visa certification, enabling
+                          direct processing of Visa credit and
                           debit payments.
                         </p>
 
@@ -761,12 +722,14 @@
                         <a href="https://www.globenewswire.com/news-release/2022/11/14/2555471/0/en/Quisitive-Reports-Third-Quarter-2022-Financial-Results.html"
                            target="_blank"
                            rel="noopener noreferrer">
-                          Production processing ↗
+                          Live production processing ↗
                         </a>
 
                         <p>
-                          Live Mastercard authorizations and approval
-                          for Visa and Mastercard in cloud production.
+                          Successfully processed live Mastercard
+                          authorizations and received approval
+                          for both networks to operate in PayiQ's
+                          cloud production environment.
                         </p>
 
                       </div>
@@ -789,7 +752,9 @@
 
                         <p>
                           AgeChecker.Net migrated to PayiQ,
-                          with monthly billing for over 700 customers.
+                          using Visa and Mastercard payment
+                          services to process monthly billing
+                          for over 700 customers.
                         </p>
 
                       </div>
@@ -797,6 +762,99 @@
                     </li>
 
                   </ol>
+
+                </section>
+
+                <!-- Personal contributions -->
+
+                <section class="payiq-engineering"
+                         aria-labelledby="payiq-engineering-heading">
+
+                  <h4 id="payiq-engineering-heading">
+                    My engineering contributions
+                  </h4>
+
+                  <ul class="payiq-contributions">
+
+                    <li>
+
+                      <strong>
+                        Payment network infrastructure
+                      </strong>
+
+                      <p>
+                        Built an ISO 8583 messaging framework
+                        for Visa, Mastercard, Discover, and
+                        Amex payment integrations.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Network certification
+                      </strong>
+
+                      <p>
+                        Owned the Visa and Mastercard
+                        certification process, coordinating
+                        technical specifications, documentation,
+                        progress, and issues across teams.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Production payment processing
+                      </strong>
+
+                      <p>
+                        Implemented authorizations, reversals,
+                        refunds, and clearing in a production
+                        card processing system. Maintained
+                        distributed payment services in
+                        Groovy/Java, supporting regional
+                        transaction processing.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Backend APIs
+                      </strong>
+
+                      <p>
+                        Developed and maintained REST APIs,
+                        including serialization and validation
+                        logic.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Testing &amp; developer support
+                      </strong>
+
+                      <p>
+                        Wrote Spock unit tests, supported
+                        regression testing in Postman, and
+                        onboarded engineers on architecture
+                        and development workflows. Wrote a
+                        one-off Python script that reduced
+                        a feature-testing task from 30 minutes
+                        to 2 minutes.
+                      </p>
+
+                    </li>
+
+                  </ul>
 
                 </section>
 
