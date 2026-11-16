@@ -51,7 +51,8 @@
       text-decoration: underline;
     }
 
-    a:focus-visible {
+    a:focus-visible,
+    summary:focus-visible {
       outline: 2px solid var(--link);
       outline-offset: 5px;
     }
@@ -263,13 +264,13 @@
       letter-spacing: .02em;
     }
 
-    /* Expandable PayiQ section */
+    /* Expandable project sections */
 
-    .payiq-details {
+    .project-details {
       margin-top: 13px;
     }
 
-    .payiq-details > summary {
+    .project-details > summary {
       cursor: pointer;
       color: var(--link);
       font-size: 13px;
@@ -277,29 +278,24 @@
       max-width: 100%;
     }
 
-    .payiq-details > summary:hover {
+    .project-details > summary:hover {
       text-decoration: underline;
       text-underline-offset: .25em;
     }
 
-    .payiq-details > summary:focus-visible {
-      outline: 2px solid var(--link);
-      outline-offset: 5px;
-    }
-
-    .payiq-details .when-open {
+    .project-details .when-open {
       display: none;
     }
 
-    .payiq-details[open] .when-open {
+    .project-details[open] .when-open {
       display: inline;
     }
 
-    .payiq-details[open] .when-closed {
+    .project-details[open] .when-closed {
       display: none;
     }
 
-    .payiq-content {
+    .project-content {
       margin-top: 20px;
       padding-top: 18px;
       border-top: 1px solid var(--line);
@@ -307,7 +303,7 @@
       font-size: 14px;
     }
 
-    .payiq-content h4 {
+    .project-content h4 {
       color: var(--text);
       font-size: 15px;
       font-weight: 600;
@@ -358,12 +354,12 @@
 
     /* Engineering contributions */
 
-    .payiq-engineering {
+    .engineering-section {
       border-top: 1px solid var(--line);
       padding-top: 20px;
     }
 
-    .payiq-contributions {
+    .contributions {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -371,7 +367,7 @@
       gap: 15px;
     }
 
-    .payiq-contributions strong {
+    .contributions strong {
       display: block;
       color: var(--text);
       font-size: 13px;
@@ -379,18 +375,50 @@
       margin-bottom: 3px;
     }
 
-    .payiq-contributions p {
+    .contributions p {
       margin: 0;
       font-size: 13px;
       line-height: 1.65;
     }
 
-    .payiq-tech {
+    .detail-tech {
       margin: 20px 0 0;
       padding-top: 13px;
       border-top: 1px solid var(--line);
       color: var(--quiet);
       font-size: 12px;
+    }
+
+    /* Game project showcase */
+
+    .game-overview {
+      margin-bottom: 22px;
+    }
+
+    .game-art {
+      margin: 0 0 15px;
+    }
+
+    .game-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .game-overview p {
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0 0 12px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     /* Contact and footer */
@@ -533,12 +561,14 @@
   <div class="shell">
 
     <header class="topbar">
+
       <a class="name" href="#top">Tyler Scheffler</a>
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </nav>
+
     </header>
 
     <main id="top">
@@ -580,6 +610,7 @@
             </a>
 
           </div>
+
         </div>
 
       </section>
@@ -628,7 +659,7 @@
               Distributed Systems
             </p>
 
-            <details class="payiq-details">
+            <details class="project-details">
 
               <summary>
 
@@ -642,7 +673,7 @@
 
               </summary>
 
-              <div class="payiq-content">
+              <div class="project-content">
 
                 <!-- Results first -->
 
@@ -767,14 +798,14 @@
 
                 <!-- Personal contributions -->
 
-                <section class="payiq-engineering"
+                <section class="engineering-section"
                          aria-labelledby="payiq-engineering-heading">
 
                   <h4 id="payiq-engineering-heading">
                     My engineering contributions
                   </h4>
 
-                  <ul class="payiq-contributions">
+                  <ul class="contributions">
 
                     <li>
 
@@ -858,7 +889,7 @@
 
                 </section>
 
-                <p class="payiq-tech">
+                <p class="detail-tech">
                   Groovy · Java · Python · ISO 8583 · REST APIs ·
                   Spock · Postman
                 </p>
@@ -894,18 +925,177 @@
             <h3>Don't Fret</h3>
 
             <p class="work-outcome">
-              Contributed gameplay programming to a commercial
-              horror game co-published by Behaviour Interactive
-              and Digital Pajamas.
+              Delivered approximately 90% of the game's puzzles
+              and built designer-facing tools for rapid
+              puzzle development.
             </p>
 
             <p class="work-desc">
-              One year of gameplay development for Scary Kid Studios.
+              Gameplay programmer at Scary Kid Studios for a
+              psychological horror game co-published by
+              Behaviour Interactive and Digital Pajamas.
             </p>
 
             <p class="work-tech">
               Unreal Engine 5 · C++ · Blueprints
             </p>
+
+            <details class="project-details">
+
+              <summary>
+
+                <span class="when-closed">
+                  View project &amp; contributions
+                </span>
+
+                <span class="when-open">
+                  Hide project &amp; contributions
+                </span>
+
+              </summary>
+
+              <div class="project-content">
+
+                <!-- Game showcase -->
+
+                <section class="game-overview"
+                         aria-labelledby="dont-fret-overview-heading">
+
+                  <figure class="game-art">
+
+                    <a href="https://store.steampowered.com/app/2716830/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="View Don't Fret on Steam">
+
+                      <img
+                        src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2716830/4e7219a9e7033d739b1a0dd750463e05b1bb04fb/header.jpg"
+                        alt="Don't Fret — official promotional artwork"
+                        width="460"
+                        height="215"
+                        loading="lazy">
+
+                    </a>
+
+                  </figure>
+
+                  <h4 id="dont-fret-overview-heading">
+                    Project overview
+                  </h4>
+
+                  <p>
+                    Don't Fret is a psychological horror game set
+                    in a nightmarish music school, where players
+                    solve musical puzzles, evade enemies, and
+                    uncover the secrets behind their captivity.
+                  </p>
+
+                  <p>
+                    During my one-year engagement at Scary Kid
+                    Studios, I implemented the majority of the
+                    game's puzzles and developed the underlying
+                    tools that enabled designers to create,
+                    configure, and iterate on puzzle content
+                    independently.
+                  </p>
+
+                  <div class="project-links">
+
+                    <a href="https://store.steampowered.com/app/2716830/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                      View on Steam ↗
+                    </a>
+
+                  </div>
+
+                </section>
+
+                <!-- Personal contributions -->
+
+                <section class="engineering-section"
+                         aria-labelledby="dont-fret-engineering-heading">
+
+                  <h4 id="dont-fret-engineering-heading">
+                    My engineering contributions
+                  </h4>
+
+                  <ul class="contributions">
+
+                    <li>
+
+                      <strong>
+                        Core puzzle gameplay
+                      </strong>
+
+                      <p>
+                        Implemented approximately 90% of the
+                        game's puzzles using C++ and Blueprints,
+                        delivering a substantial portion of
+                        the game's core interactive content.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Designer-facing tools &amp; systems
+                      </strong>
+
+                      <p>
+                        Built a data-driven puzzle workflow
+                        using Gameplay Tags and Data Assets,
+                        allowing designers to configure and
+                        iterate on puzzle content without
+                        additional programming.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        AI &amp; gameplay systems
+                      </strong>
+
+                      <p>
+                        Implemented supporting AI behaviors
+                        and gameplay systems, contributing to
+                        the game's interactive environments
+                        and enemy encounters.
+                      </p>
+
+                    </li>
+
+                    <li>
+
+                      <strong>
+                        Visual effects &amp; materials
+                      </strong>
+
+                      <p>
+                        Improved particle effects and developed
+                        custom shader and material features,
+                        contributing to the visual presentation
+                        and atmosphere of the game.
+                      </p>
+
+                    </li>
+
+                  </ul>
+
+                </section>
+
+                <p class="detail-tech">
+                  Unreal Engine 5 · C++ · Blueprints ·
+                  Gameplay Tags · Data Assets · AI ·
+                  Materials &amp; VFX
+                </p>
+
+              </div>
+
+            </details>
 
           </div>
 
