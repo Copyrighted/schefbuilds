@@ -101,7 +101,8 @@
     .section-index,
     .work-number,
     .work-kind,
-    .work-date {
+    .work-date,
+    .showcase-index {
       font-family: ui-monospace, SFMono-Regular,
                    Consolas, "Liberation Mono", monospace;
     }
@@ -208,6 +209,10 @@
       font-size: 12px;
     }
 
+    .work-body {
+      min-width: 0;
+    }
+
     h3 {
       margin: 0 0 12px;
       font-size: clamp(21px, 2.6vw, 25px);
@@ -310,15 +315,25 @@
       margin: 0 0 12px;
     }
 
-    /* Results and published milestones */
+    .project-content h5 {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 7px;
+    }
+
+    .project-content p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* PayiQ results and milestones */
 
     .payiq-milestones {
       margin: 0 0 22px;
     }
 
     .payiq-milestones > p {
-      font-size: 13px;
-      line-height: 1.65;
       margin: 0 0 12px;
     }
 
@@ -352,11 +367,13 @@
       margin: 3px 0 0;
     }
 
-    /* Engineering contributions */
+    /* Reusable detail sections */
 
-    .engineering-section {
+    .engineering-section,
+    .detail-section {
       border-top: 1px solid var(--line);
       padding-top: 20px;
+      margin-top: 24px;
     }
 
     .contributions {
@@ -386,20 +403,178 @@
       padding-top: 13px;
       border-top: 1px solid var(--line);
       color: var(--quiet);
-      font-size: 12px;
+      font-size: 12px !important;
     }
 
-    /* Game project showcase */
-
-    .game-overview {
-      margin-bottom: 22px;
+    .detail-lead {
+      margin: 0 0 12px;
+      color: var(--text);
+      font-weight: 550;
     }
 
-    .game-art {
+    .project-content .detail-copy {
+      margin: 0 0 12px;
+    }
+
+    /* Gameplay sequence diagram */
+
+    .sequence {
+      margin: 20px 0 16px;
+      padding: 17px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sequence-heading {
+      font-family: ui-monospace, SFMono-Regular,
+                   Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: .07em;
+      color: var(--quiet);
       margin: 0 0 15px;
     }
 
-    .game-art img {
+    .sequence-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0;
+    }
+
+    .sequence-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 8px;
+      padding: 0 0 17px;
+    }
+
+    .sequence-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .sequence-step:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 21px;
+      bottom: 0;
+      border-left: 1px solid var(--line);
+    }
+
+    .sequence-dot {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 21px;
+      height: 21px;
+      border: 1px solid #4d5b53;
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular,
+                   Consolas, monospace;
+      font-size: 10px;
+    }
+
+    .sequence-type {
+      display: block;
+      margin: 0 0 2px;
+      color: var(--quiet);
+      font-family: ui-monospace, SFMono-Regular,
+                   Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .sequence-step strong {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 550;
+    }
+
+    .sequence-step.cinematic strong {
+      color: var(--link);
+    }
+
+    .sequence-step.gameplay strong {
+      color: var(--accent);
+    }
+
+    .sequence-caption {
+      margin: 14px 0 0;
+      font-size: 11px !important;
+      color: var(--quiet);
+      line-height: 1.6;
+    }
+
+    /* Gameplay Tag example */
+
+    .tag-example {
+      display: grid;
+      gap: 10px;
+      margin: 17px 0 14px;
+      padding: 14px 16px;
+      background: #1c2322;
+      border-left: 2px solid #63715f;
+    }
+
+    .tag-example-row {
+      display: grid;
+      gap: 4px;
+    }
+
+    .tag-example-label {
+      color: var(--quiet);
+      font-size: 11px;
+    }
+
+    .tag-example code {
+      color: var(--accent);
+      font-size: 11px;
+      overflow-wrap: anywhere;
+      font-family: ui-monospace, SFMono-Regular,
+                   Consolas, monospace;
+    }
+
+    .tag-example-note {
+      margin: 0;
+      color: var(--quiet);
+      font-size: 11px !important;
+    }
+
+    /* Gameplay screenshots */
+
+    .showcase-intro {
+      margin: 0 0 20px;
+    }
+
+    .game-showcase {
+      margin-top: 25px;
+    }
+
+    .game-showcase + .game-showcase {
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .showcase-index {
+      display: block;
+      color: var(--quiet);
+      font-size: 10px;
+      letter-spacing: .05em;
+      margin-bottom: 7px;
+    }
+
+    .game-showcase figure {
+      margin: 12px 0;
+    }
+
+    .game-showcase img {
       display: block;
       width: 100%;
       height: auto;
@@ -407,10 +582,15 @@
       border-radius: 3px;
     }
 
-    .game-overview p {
-      font-size: 13px;
-      line-height: 1.65;
-      margin: 0 0 12px;
+    .game-showcase figcaption {
+      color: var(--quiet);
+      font-size: 11px;
+      margin-top: 7px;
+      line-height: 1.5;
+    }
+
+    .game-showcase p {
+      margin: 0;
     }
 
     .project-links {
@@ -419,6 +599,7 @@
       gap: 10px 22px;
       font-size: 13px;
       font-weight: 500;
+      margin-top: 18px;
     }
 
     /* Contact and footer */
@@ -547,6 +728,10 @@
         flex-direction: column;
         gap: 16px;
       }
+
+      .tag-example {
+        padding: 12px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -633,7 +818,9 @@
 
         </div>
 
-        <!-- PayiQ -->
+        <!-- ======================================== -->
+        <!-- PAYIQ                                    -->
+        <!-- ======================================== -->
 
         <article class="work-item" id="payiq">
 
@@ -914,7 +1101,9 @@
 
         </article>
 
-        <!-- Don't Fret -->
+        <!-- ======================================== -->
+        <!-- DON'T FRET                               -->
+        <!-- ======================================== -->
 
         <article class="work-item" id="dont-fret">
 
@@ -925,9 +1114,10 @@
             <h3>Don't Fret</h3>
 
             <p class="work-outcome">
-              Delivered approximately 90% of the game's puzzles
-              and built designer-facing tools for rapid
-              puzzle development.
+              Implemented approximately 90% of the game's
+              puzzles and built an event-driven gameplay
+              framework that enabled designers to independently
+              chain gameplay and cinematics through Gameplay Tags.
             </p>
 
             <p class="work-desc">
@@ -937,7 +1127,7 @@
             </p>
 
             <p class="work-tech">
-              Unreal Engine 5 · C++ · Blueprints
+              Unreal Engine 5 · C++ · Blueprints · Gameplay Tags
             </p>
 
             <details class="project-details">
@@ -945,94 +1135,426 @@
               <summary>
 
                 <span class="when-closed">
-                  View project &amp; contributions
+                  View gameplay &amp; engineering contributions
                 </span>
 
                 <span class="when-open">
-                  Hide project &amp; contributions
+                  Hide gameplay &amp; engineering contributions
                 </span>
 
               </summary>
 
               <div class="project-content">
 
-                <!-- Game showcase -->
+                <!-- Project introduction -->
 
-                <section class="game-overview"
-                         aria-labelledby="dont-fret-overview-heading">
+                <p class="detail-copy">
+                  During my one-year engagement at Scary Kid
+                  Studios, I delivered the majority of the game's
+                  puzzle gameplay alongside reusable systems that
+                  enabled the design and audio teams to build,
+                  customize, and iterate on interactive experiences
+                  independently.
+                </p>
 
-                  <figure class="game-art">
+                <div class="project-links">
 
-                    <a href="https://store.steampowered.com/app/2716830/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="View Don't Fret on Steam">
+                  <a href="https://store.steampowered.com/app/2716830/"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    View Don't Fret on Steam ↗
+                  </a>
 
-                      <img
-                        src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2716830/4e7219a9e7033d739b1a0dd750463e05b1bb04fb/header.jpg"
-                        alt="Don't Fret — official promotional artwork"
-                        width="460"
-                        height="215"
-                        loading="lazy">
+                </div>
 
-                    </a>
+                <!-- Gameplay and cinematic sequencing -->
 
-                  </figure>
+                <section class="detail-section"
+                         aria-labelledby="dont-fret-sequencing">
 
-                  <h4 id="dont-fret-overview-heading">
-                    Project overview
+                  <span class="showcase-index">
+                    01 / GAMEPLAY ARCHITECTURE
+                  </span>
+
+                  <h4 id="dont-fret-sequencing">
+                    Event-Driven Gameplay &amp; Cinematic Sequencing
                   </h4>
 
-                  <p>
-                    Don't Fret is a psychological horror game set
-                    in a nightmarish music school, where players
-                    solve musical puzzles, evade enemies, and
-                    uncover the secrets behind their captivity.
+                  <p class="detail-lead">
+                    Delivered a reusable system that allowed
+                    designers to construct complex playable
+                    sequences simply by matching Gameplay Tags.
                   </p>
 
-                  <p>
-                    During my one-year engagement at Scary Kid
-                    Studios, I implemented the majority of the
-                    game's puzzles and developed the underlying
-                    tools that enabled designers to create,
-                    configure, and iterate on puzzle content
-                    independently.
+                  <p class="detail-copy">
+                    Built a gameplay orchestration framework
+                    leveraging Lyra's tag-based publish/subscribe
+                    architecture. Individual gameplay systems could
+                    broadcast completion events and subscribe to
+                    events from other systems without requiring
+                    direct dependencies.
                   </p>
 
-                  <div class="project-links">
+                  <p class="detail-copy">
+                    Designers could author cinematics in Unreal
+                    Engine and configure matching trigger and
+                    completion tags to chain together cutscenes,
+                    interactive gameplay, and transitions in
+                    player control. New sequences could be assembled
+                    from existing components without additional
+                    gameplay programming.
+                  </p>
 
-                    <a href="https://store.steampowered.com/app/2716830/"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                      View on Steam ↗
-                    </a>
+                  <!-- Example gameplay sequence -->
+
+                  <div class="sequence">
+
+                    <p class="sequence-heading">
+                      EXAMPLE / GUITAR GAMEPLAY SEQUENCE
+                    </p>
+
+                    <ol class="sequence-steps">
+
+                      <li class="sequence-step gameplay">
+
+                        <span class="sequence-dot">1</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Player interaction
+                          </span>
+
+                          <strong>
+                            Fret interacts with a chair
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step cinematic">
+
+                        <span class="sequence-dot">2</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Cinematic
+                          </span>
+
+                          <strong>
+                            Fret retrieves his guitar
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step gameplay">
+
+                        <span class="sequence-dot">3</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Interactive gameplay
+                          </span>
+
+                          <strong>
+                            Control transitions to guitar gameplay
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step cinematic">
+
+                        <span class="sequence-dot">4</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Cinematic
+                          </span>
+
+                          <strong>
+                            Guitar gameplay concludes
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step">
+
+                        <span class="sequence-dot">5</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Transition
+                          </span>
+
+                          <strong>
+                            Return to Fret's character
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step cinematic">
+
+                        <span class="sequence-dot">6</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Cinematic
+                          </span>
+
+                          <strong>
+                            Closing cutscene plays
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                      <li class="sequence-step gameplay">
+
+                        <span class="sequence-dot">7</span>
+
+                        <div>
+
+                          <span class="sequence-type">
+                            Gameplay restored
+                          </span>
+
+                          <strong>
+                            Normal player control resumes
+                          </strong>
+
+                        </div>
+
+                      </li>
+
+                    </ol>
+
+                    <p class="sequence-caption">
+                      Example of a complete gameplay experience
+                      assembled from independent gameplay and
+                      cinematic components.
+                    </p>
 
                   </div>
 
+                  <!-- Gameplay Tag communication example -->
+
+                  <h5>How the components communicate</h5>
+
+                  <p class="detail-copy">
+                    Each component broadcasts an event when it
+                    completes. The next component subscribes to
+                    the matching Gameplay Tag and activates when
+                    that event is received. Designers connect the
+                    stages by configuring the tags.
+                  </p>
+
+                  <div class="tag-example">
+
+                    <div class="tag-example-row">
+
+                      <span class="tag-example-label">
+                        Cinematic completion — broadcasts
+                      </span>
+
+                      <code>
+                        Cinematic.GuitarPickup.Completed
+                      </code>
+
+                    </div>
+
+                    <div class="tag-example-row">
+
+                      <span class="tag-example-label">
+                        Guitar gameplay — listens for
+                      </span>
+
+                      <code>
+                        Cinematic.GuitarPickup.Completed
+                      </code>
+
+                    </div>
+
+                    <p class="tag-example-note">
+                      Illustrative Gameplay Tag names.
+                    </p>
+
+                  </div>
+
+                  <p class="detail-copy">
+                    The result was a flexible, designer-driven
+                    workflow that kept cinematic playback,
+                    gameplay interactions, and player-control
+                    transitions decoupled while enabling the
+                    team to create complex scripted experiences.
+                  </p>
+
                 </section>
 
-                <!-- Personal contributions -->
+                <!-- Selected puzzle implementations -->
 
-                <section class="engineering-section"
-                         aria-labelledby="dont-fret-engineering-heading">
+                <section class="detail-section"
+                         aria-labelledby="dont-fret-puzzles">
 
-                  <h4 id="dont-fret-engineering-heading">
-                    My engineering contributions
+                  <span class="showcase-index">
+                    02 / GAMEPLAY IMPLEMENTATION
+                  </span>
+
+                  <h4 id="dont-fret-puzzles">
+                    Selected Puzzle Implementations
                   </h4>
+
+                  <p class="detail-lead">
+                    Implemented approximately 90% of the game's
+                    puzzles, from player interactions and mechanical
+                    behavior to solution validation and completion.
+                  </p>
+
+                  <p class="showcase-intro">
+                    The following examples represent a selection
+                    of the puzzles I delivered. Each was implemented
+                    end to end, with configurable gameplay parameters
+                    and integration hooks for the design and audio
+                    teams.
+                  </p>
+
+                  <!-- Air Control System -->
+
+                  <article class="game-showcase">
+
+                    <span class="showcase-index">
+                      PUZZLE 01
+                    </span>
+
+                    <h5>Air Control System</h5>
+
+                    <figure>
+
+                      <a href="assets/dont-fret-air-control.png"
+                         target="_blank"
+                         rel="noopener noreferrer">
+
+                        <img
+                          src="assets/dont-fret-air-control.png"
+                          alt="Air Control System puzzle in Don't Fret, featuring mechanical controls and musical note indicators."
+                          loading="lazy">
+
+                      </a>
+
+                      <figcaption>
+                        In-game screenshot of the Air Control
+                        System puzzle.
+                      </figcaption>
+
+                    </figure>
+
+                    <p>
+                      Implemented the complete gameplay behavior,
+                      including interactive valve and knob controls,
+                      musical note interactions, puzzle state,
+                      solution validation, and completion logic.
+                      Exposed customizable parameters so designers
+                      could adjust puzzle behavior and provided
+                      audio hooks for sound designers to integrate
+                      mechanical and musical feedback.
+                    </p>
+
+                  </article>
+
+                  <!-- Guitar Tuning Puzzle -->
+
+                  <article class="game-showcase">
+
+                    <span class="showcase-index">
+                      PUZZLE 02
+                    </span>
+
+                    <h5>Guitar Tuning Puzzle</h5>
+
+                    <figure>
+
+                      <a href="assets/dont-fret-guitar.png"
+                         target="_blank"
+                         rel="noopener noreferrer">
+
+                        <img
+                          src="assets/dont-fret-guitar.png"
+                          alt="Interactive guitar tuning puzzle in Don't Fret with tuning controls and musical feedback."
+                          loading="lazy">
+
+                      </a>
+
+                      <figcaption>
+                        In-game screenshot of the guitar tuning
+                        puzzle.
+                      </figcaption>
+
+                    </figure>
+
+                    <p>
+                      Implemented the interactive guitar tuning
+                      mechanic, including turning the tuning knobs,
+                      tracking puzzle state, validating the solution,
+                      and handling completion. Developed configurable
+                      gameplay parameters and audio integration hooks
+                      that allowed the design and sound teams to
+                      customize the experience independently.
+                    </p>
+
+                  </article>
+
+                  <!-- Add future puzzle showcases here -->
+
+                </section>
+
+                <!-- Designer-facing systems -->
+
+                <section class="detail-section"
+                         aria-labelledby="dont-fret-tools">
+
+                  <span class="showcase-index">
+                    03 / DESIGNER-FACING SYSTEMS
+                  </span>
+
+                  <h4 id="dont-fret-tools">
+                    Design &amp; Audio Integration
+                  </h4>
+
+                  <p class="detail-lead">
+                    Built gameplay systems that gave designers
+                    and sound designers independent control over
+                    puzzle behavior and presentation.
+                  </p>
 
                   <ul class="contributions">
 
                     <li>
 
                       <strong>
-                        Core puzzle gameplay
+                        Data-driven puzzle configuration
                       </strong>
 
                       <p>
-                        Implemented approximately 90% of the
-                        game's puzzles using C++ and Blueprints,
-                        delivering a substantial portion of
-                        the game's core interactive content.
+                        Developed reusable puzzle systems using
+                        C++, Blueprints, Gameplay Tags, and Data
+                        Assets. Exposed configurable gameplay
+                        parameters so designers could customize
+                        puzzle behavior and iterate without
+                        modifying the underlying code.
                       </p>
 
                     </li>
@@ -1040,18 +1562,54 @@
                     <li>
 
                       <strong>
-                        Designer-facing tools &amp; systems
+                        Audio integration hooks
                       </strong>
 
                       <p>
-                        Built a data-driven puzzle workflow
-                        using Gameplay Tags and Data Assets,
-                        allowing designers to configure and
-                        iterate on puzzle content without
-                        additional programming.
+                        Provided hooks for sound designers to
+                        connect audio to player interactions,
+                        mechanical movements, puzzle feedback,
+                        and completion events. Kept gameplay
+                        logic separate from audio content so the
+                        audio team could iterate independently.
                       </p>
 
                     </li>
+
+                    <li>
+
+                      <strong>
+                        Reusable gameplay components
+                      </strong>
+
+                      <p>
+                        Connected independent gameplay and
+                        cinematic systems through configurable
+                        event tags, allowing the design team
+                        to compose new experiences from existing
+                        functionality.
+                      </p>
+
+                    </li>
+
+                  </ul>
+
+                </section>
+
+                <!-- Additional engineering work -->
+
+                <section class="detail-section"
+                         aria-labelledby="dont-fret-additional">
+
+                  <span class="showcase-index">
+                    04 / ADDITIONAL CONTRIBUTIONS
+                  </span>
+
+                  <h4 id="dont-fret-additional">
+                    Additional Engineering Contributions
+                  </h4>
+
+                  <ul class="contributions">
 
                     <li>
 
@@ -1060,10 +1618,10 @@
                       </strong>
 
                       <p>
-                        Implemented supporting AI behaviors
-                        and gameplay systems, contributing to
-                        the game's interactive environments
-                        and enemy encounters.
+                        Implemented supporting AI behaviors and
+                        gameplay systems, contributing to the
+                        game's interactive environments and
+                        enemy encounters.
                       </p>
 
                     </li>
@@ -1071,7 +1629,7 @@
                     <li>
 
                       <strong>
-                        Visual effects &amp; materials
+                        Shaders, materials &amp; visual effects
                       </strong>
 
                       <p>
@@ -1089,9 +1647,19 @@
 
                 <p class="detail-tech">
                   Unreal Engine 5 · C++ · Blueprints ·
-                  Gameplay Tags · Data Assets · AI ·
-                  Materials &amp; VFX
+                  Gameplay Tags · Data Assets · Event-Driven
+                  Architecture · AI · Materials &amp; VFX
                 </p>
+
+                <div class="project-links">
+
+                  <a href="https://store.steampowered.com/app/2716830/"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    View Don't Fret on Steam ↗
+                  </a>
+
+                </div>
 
               </div>
 
@@ -1113,7 +1681,9 @@
 
         </article>
 
-        <!-- Trash Wars -->
+        <!-- ======================================== -->
+        <!-- TRASH WARS                               -->
+        <!-- ======================================== -->
 
         <article class="work-item" id="trash-wars">
 
@@ -1154,7 +1724,9 @@
 
         </article>
 
-        <!-- Menhir -->
+        <!-- ======================================== -->
+        <!-- MENHIR                                   -->
+        <!-- ======================================== -->
 
         <article class="work-item" id="menhir">
 
