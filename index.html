@@ -116,6 +116,7 @@
       height: 7px;
       border-radius: 50%;
       background: #a4bb9c;
+      flex: none;
     }
 
     h1 {
@@ -223,6 +224,127 @@
       letter-spacing: .02em;
     }
 
+    /* Expandable PayiQ section */
+
+    .payiq-details {
+      margin-top: 12px;
+    }
+
+    .payiq-details > summary {
+      cursor: pointer;
+      color: var(--link);
+      font-size: 13px;
+      width: fit-content;
+    }
+
+    .payiq-details > summary:hover {
+      text-decoration: underline;
+      text-underline-offset: .25em;
+    }
+
+    .payiq-details > summary:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 5px;
+    }
+
+    .payiq-details .when-open {
+      display: none;
+    }
+
+    .payiq-details[open] .when-open {
+      display: inline;
+    }
+
+    .payiq-details[open] .when-closed {
+      display: none;
+    }
+
+    .payiq-content {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .payiq-content h4 {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    .payiq-contributions {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 23px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .payiq-contributions strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .payiq-contributions p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .payiq-milestones {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .payiq-milestones > p {
+      font-size: 12px;
+      margin: -5px 0 12px;
+    }
+
+    .payiq-milestones ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .payiq-milestones li {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 12px;
+      padding: 10px 0;
+      align-items: baseline;
+    }
+
+    .payiq-milestones time {
+      color: var(--quiet);
+      font: 11px/1.6 ui-monospace, SFMono-Regular,
+            Consolas, monospace;
+    }
+
+    .payiq-milestones a {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .payiq-milestones li p {
+      font-size: 12px;
+      margin: 3px 0 0;
+    }
+
+    .payiq-tech {
+      margin: 18px 0 0;
+      padding-top: 13px;
+      border-top: 1px solid var(--line);
+      color: var(--quiet);
+      font-size: 12px;
+    }
+
+    /* Contact and footer */
+
     .contact {
       display: flex;
       justify-content: space-between;
@@ -258,6 +380,8 @@
       color: var(--quiet);
       font-size: 11px;
     }
+
+    /* Mobile layout */
 
     @media (max-width: 650px) {
       .shell {
@@ -313,6 +437,11 @@
 
       .work-desc {
         font-size: 13px;
+      }
+
+      .payiq-milestones li {
+        grid-template-columns: 65px minmax(0, 1fr);
+        gap: 8px;
       }
 
       .contact {
@@ -388,6 +517,8 @@
           </span>
         </div>
 
+        <!-- PayiQ -->
+
         <article class="work-item">
           <span class="work-number">01</span>
 
@@ -400,10 +531,169 @@
               Mastercard certification process, enabling millions
               in transaction revenue.
             </p>
+
+            <details class="payiq-details">
+
+              <summary>
+                <span class="when-closed">
+                  View contributions &amp; results
+                </span>
+                <span class="when-open">
+                  Hide contributions &amp; results
+                </span>
+              </summary>
+
+              <div class="payiq-content">
+
+                <h4>Engineering contributions</h4>
+
+                <ul class="payiq-contributions">
+
+                  <li>
+                    <strong>Payment network integrations</strong>
+                    <p>
+                      Built an ISO 8583 messaging framework for Visa,
+                      Mastercard, Discover, and Amex payment
+                      integrations.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>
+                      Certification &amp; production payments
+                    </strong>
+                    <p>
+                      Owned Visa and Mastercard certifications,
+                      coordinating specifications, testing, and
+                      technical issues across teams. Implemented
+                      authorizations, reversals, refunds, and clearing.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Distributed backend &amp; APIs</strong>
+                    <p>
+                      Maintained regional payment processing services
+                      in Groovy/Java. Developed REST APIs, including
+                      serialization and validation logic.
+                    </p>
+                  </li>
+
+                  <li>
+                    <strong>Testing &amp; developer support</strong>
+                    <p>
+                      Wrote Spock unit tests, supported regression
+                      testing in Postman, and onboarded engineers.
+                      Wrote a one-off Python script that reduced a
+                      feature-testing task from 30 minutes to 2 minutes.
+                    </p>
+                  </li>
+
+                </ul>
+
+                <section class="payiq-milestones"
+                         aria-label="Published milestones">
+
+                  <h4>Published milestones</h4>
+
+                  <p>
+                    Quisitive announcements documenting the
+                    platform's progress.
+                  </p>
+
+                  <ol>
+
+                    <li>
+                      <time datetime="2022-03-30">
+                        MAR 2022
+                      </time>
+
+                      <div>
+                        <a href="https://pay-iq.com/wp-content/uploads/2022/10/11-mastercard-cert.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                          Mastercard certification ↗
+                        </a>
+
+                        <p>
+                          Approved to process Mastercard transactions.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li>
+                      <time datetime="2022-06-23">
+                        JUN 2022
+                      </time>
+
+                      <div>
+                        <a href="https://quisitive.com/quisitive-receives-visa-certification-for-its-ledgerpay-platform/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                          Visa certification ↗
+                        </a>
+
+                        <p>
+                          Approved to process Visa credit and
+                          debit payments.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li>
+                      <time datetime="2022-11-14">
+                        NOV 2022
+                      </time>
+
+                      <div>
+                        <a href="https://www.globenewswire.com/news-release/2022/11/14/2555471/0/en/Quisitive-Reports-Third-Quarter-2022-Financial-Results.html"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                          Production processing ↗
+                        </a>
+
+                        <p>
+                          Live Mastercard authorizations and approval
+                          for Visa and Mastercard in cloud production.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li>
+                      <time datetime="2023-08-09">
+                        AUG 2023
+                      </time>
+
+                      <div>
+                        <a href="https://quisitive.com/quisitive-migrates-agechecker-net-to-payiq-platform-as-its-first-customer-processing-monthly-billing-for-verification-services/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                          First live customer ↗
+                        </a>
+
+                        <p>
+                          AgeChecker.Net migrated to PayiQ,
+                          with monthly billing for over 700 customers.
+                        </p>
+                      </div>
+                    </li>
+
+                  </ol>
+                </section>
+
+                <p class="payiq-tech">
+                  Groovy · Java · Python · ISO 8583 · REST APIs ·
+                  Spock · Postman
+                </p>
+
+              </div>
+            </details>
           </div>
 
           <span class="work-kind">BACKEND / FINTECH</span>
         </article>
+
+        <!-- Don't Fret -->
 
         <article class="work-item">
           <span class="work-number">02</span>
@@ -420,6 +710,8 @@
           <span class="work-kind">GAMEPLAY PROGRAMMER</span>
         </article>
 
+        <!-- Trash Wars -->
+
         <article class="work-item">
           <span class="work-number">03</span>
 
@@ -434,6 +726,8 @@
 
           <span class="work-kind">SOLO DEVELOPER</span>
         </article>
+
+        <!-- God Game -->
 
         <article class="work-item">
           <span class="work-number">04</span>
@@ -452,12 +746,15 @@
 
       </section>
 
+      <!-- Contact -->
+
       <section id="contact"
                class="contact"
                aria-labelledby="contact-heading">
 
         <div>
           <h2 id="contact-heading">Work with me</h2>
+
           <p>
             Open to contract and full-time opportunities in
             backend engineering, payments, and game development.
