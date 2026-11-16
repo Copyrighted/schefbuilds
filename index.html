@@ -62,6 +62,8 @@
       padding: 38px clamp(24px, 6vw, 72px) 34px;
     }
 
+    /* Header */
+
     .topbar {
       display: flex;
       justify-content: space-between;
@@ -88,6 +90,8 @@
       color: var(--muted);
     }
 
+    /* Introduction */
+
     .hero {
       padding: 38px 0 42px;
     }
@@ -95,7 +99,8 @@
     .eyebrow,
     .section-index,
     .work-number,
-    .work-kind {
+    .work-kind,
+    .work-date {
       font-family: ui-monospace, SFMono-Regular,
                    Consolas, "Liberation Mono", monospace;
     }
@@ -156,6 +161,8 @@
       font-weight: 500;
     }
 
+    /* Selected work */
+
     .work-section {
       border-top: 1px solid var(--line);
     }
@@ -189,7 +196,7 @@
       display: grid;
       grid-template-columns: 62px minmax(0, 1fr) 180px;
       column-gap: 12px;
-      padding: 24px 0 26px;
+      padding: 26px 0 29px;
       border-top: 1px solid var(--line);
       align-items: start;
     }
@@ -201,11 +208,22 @@
     }
 
     h3 {
-      margin: 0 0 8px;
+      margin: 0 0 12px;
       font-size: clamp(21px, 2.6vw, 25px);
       line-height: 1.2;
       font-weight: 570;
       letter-spacing: -.035em;
+    }
+
+    /* Delivery-focused summaries */
+
+    .work-outcome {
+      margin: 0 0 7px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 550;
+      line-height: 1.55;
+      max-width: 590px;
     }
 
     .work-desc {
@@ -216,18 +234,39 @@
       max-width: 590px;
     }
 
+    .work-tech {
+      color: var(--accent);
+      margin: 11px 0 0;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .work-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      padding-top: 7px;
+      text-align: right;
+    }
+
     .work-kind {
       font-size: 11px;
       color: var(--accent);
-      padding-top: 7px;
-      text-align: right;
+      letter-spacing: .02em;
+    }
+
+    .work-date {
+      font-size: 11px;
+      color: var(--quiet);
       letter-spacing: .02em;
     }
 
     /* Expandable PayiQ section */
 
     .payiq-details {
-      margin-top: 12px;
+      margin-top: 13px;
     }
 
     .payiq-details > summary {
@@ -235,6 +274,7 @@
       color: var(--link);
       font-size: 13px;
       width: fit-content;
+      max-width: 100%;
     }
 
     .payiq-details > summary:hover {
@@ -279,7 +319,7 @@
       padding: 0;
       margin: 0 0 23px;
       display: grid;
-      gap: 13px;
+      gap: 15px;
     }
 
     .payiq-contributions strong {
@@ -413,30 +453,50 @@
       }
 
       .work-item {
-        grid-template-columns: 35px 1fr;
+        grid-template-columns: 35px minmax(0, 1fr);
         padding: 24px 0 26px;
       }
 
-      .work-kind {
+      .work-meta {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
         text-align: left;
-        padding: 0 0 8px;
+        padding: 0 0 10px;
+      }
+
+      .work-kind {
+        font-size: 10px;
+      }
+
+      .work-date {
         font-size: 10px;
       }
 
       .work-body {
         grid-column: 2;
-        grid-row: 3;
+        grid-row: 2;
       }
 
       .work-number {
         grid-column: 1;
-        grid-row: 1 / 4;
+        grid-row: 1 / 3;
+        padding-top: 0;
+      }
+
+      .work-outcome {
+        font-size: 14px;
       }
 
       .work-desc {
         font-size: 13px;
+      }
+
+      .work-tech {
+        font-size: 12px;
       }
 
       .payiq-milestones li {
@@ -473,7 +533,10 @@
 
     <main id="top">
 
+      <!-- Introduction -->
+
       <section class="hero" aria-labelledby="intro-heading">
+
         <p class="eyebrow">
           <span class="status-dot" aria-hidden="true"></span>
           Available for contract &amp; full-time work
@@ -485,6 +548,7 @@
         </h1>
 
         <div class="hero-bottom">
+
           <p class="intro">
             I build production software and games—from payment
             processing systems and card-network integrations to
@@ -492,6 +556,7 @@
           </p>
 
           <div class="quicklinks" aria-label="Professional links">
+
             <a href="https://github.com/Copyrighted">
               GitHub ↗
             </a>
@@ -500,47 +565,71 @@
               LinkedIn ↗
             </a>
 
-            <a href="#contact">Contact ↗</a>
+            <a href="#contact">
+              Contact ↗
+            </a>
+
           </div>
         </div>
+
       </section>
+
+      <!-- Selected work -->
 
       <section id="work"
                class="work-section"
                aria-labelledby="work-heading">
 
         <div class="section-head">
+
           <span class="section-index">01 /</span>
+
           <h2 id="work-heading">Selected work</h2>
+
           <span class="section-description">
             Professional &amp; independent
           </span>
+
         </div>
 
         <!-- PayiQ -->
 
-        <article class="work-item">
+        <article class="work-item" id="payiq">
+
           <span class="work-number">01</span>
 
           <div class="work-body">
+
             <h3>PayiQ</h3>
+
+            <p class="work-outcome">
+              Enabled millions in revenue through Visa and
+              Mastercard payment processing.
+            </p>
 
             <p class="work-desc">
               Built ISO 8583 messaging infrastructure for Visa,
               Mastercard, Discover, and Amex. Owned the Visa and
-              Mastercard certification process, enabling millions
-              in transaction revenue.
+              Mastercard certification process.
+            </p>
+
+            <p class="work-tech">
+              Java / Groovy · ISO 8583 · REST APIs ·
+              Distributed Systems
             </p>
 
             <details class="payiq-details">
 
               <summary>
+
                 <span class="when-closed">
                   View contributions &amp; results
                 </span>
+
                 <span class="when-open">
                   Hide contributions &amp; results
                 </span>
+
               </summary>
 
               <div class="payiq-content">
@@ -550,43 +639,56 @@
                 <ul class="payiq-contributions">
 
                   <li>
+
                     <strong>Payment network integrations</strong>
+
                     <p>
                       Built an ISO 8583 messaging framework for Visa,
                       Mastercard, Discover, and Amex payment
                       integrations.
                     </p>
+
                   </li>
 
                   <li>
+
                     <strong>
                       Certification &amp; production payments
                     </strong>
+
                     <p>
-                      Owned Visa and Mastercard certifications,
-                      coordinating specifications, testing, and
-                      technical issues across teams. Implemented
-                      authorizations, reversals, refunds, and clearing.
+                      Owned the Visa and Mastercard certification
+                      process, coordinating specifications, testing,
+                      and technical issues across teams.
+                      Implemented authorizations, reversals,
+                      refunds, and clearing.
                     </p>
+
                   </li>
 
                   <li>
+
                     <strong>Distributed backend &amp; APIs</strong>
+
                     <p>
                       Maintained regional payment processing services
                       in Groovy/Java. Developed REST APIs, including
                       serialization and validation logic.
                     </p>
+
                   </li>
 
                   <li>
+
                     <strong>Testing &amp; developer support</strong>
+
                     <p>
                       Wrote Spock unit tests, supported regression
                       testing in Postman, and onboarded engineers.
                       Wrote a one-off Python script that reduced a
                       feature-testing task from 30 minutes to 2 minutes.
                     </p>
+
                   </li>
 
                 </ul>
@@ -604,11 +706,13 @@
                   <ol>
 
                     <li>
-                      <time datetime="2022-03-30">
+
+                      <time datetime="2022-03">
                         MAR 2022
                       </time>
 
                       <div>
+
                         <a href="https://pay-iq.com/wp-content/uploads/2022/10/11-mastercard-cert.pdf"
                            target="_blank"
                            rel="noopener noreferrer">
@@ -618,15 +722,19 @@
                         <p>
                           Approved to process Mastercard transactions.
                         </p>
+
                       </div>
+
                     </li>
 
                     <li>
-                      <time datetime="2022-06-23">
+
+                      <time datetime="2022-06">
                         JUN 2022
                       </time>
 
                       <div>
+
                         <a href="https://quisitive.com/quisitive-receives-visa-certification-for-its-ledgerpay-platform/"
                            target="_blank"
                            rel="noopener noreferrer">
@@ -637,15 +745,19 @@
                           Approved to process Visa credit and
                           debit payments.
                         </p>
+
                       </div>
+
                     </li>
 
                     <li>
-                      <time datetime="2022-11-14">
+
+                      <time datetime="2022-11">
                         NOV 2022
                       </time>
 
                       <div>
+
                         <a href="https://www.globenewswire.com/news-release/2022/11/14/2555471/0/en/Quisitive-Reports-Third-Quarter-2022-Financial-Results.html"
                            target="_blank"
                            rel="noopener noreferrer">
@@ -656,15 +768,19 @@
                           Live Mastercard authorizations and approval
                           for Visa and Mastercard in cloud production.
                         </p>
+
                       </div>
+
                     </li>
 
                     <li>
-                      <time datetime="2023-08-09">
+
+                      <time datetime="2023-08">
                         AUG 2023
                       </time>
 
                       <div>
+
                         <a href="https://quisitive.com/quisitive-migrates-agechecker-net-to-payiq-platform-as-its-first-customer-processing-monthly-billing-for-verification-services/"
                            target="_blank"
                            rel="noopener noreferrer">
@@ -675,10 +791,13 @@
                           AgeChecker.Net migrated to PayiQ,
                           with monthly billing for over 700 customers.
                         </p>
+
                       </div>
+
                     </li>
 
                   </ol>
+
                 </section>
 
                 <p class="payiq-tech">
@@ -687,61 +806,145 @@
                 </p>
 
               </div>
+
             </details>
+
           </div>
 
-          <span class="work-kind">BACKEND / FINTECH</span>
+          <div class="work-meta">
+
+            <span class="work-kind">
+              BACKEND ENGINEER
+            </span>
+
+            <span class="work-date">
+              2021 — 2024
+            </span>
+
+          </div>
+
         </article>
 
         <!-- Don't Fret -->
 
-        <article class="work-item">
+        <article class="work-item" id="dont-fret">
+
           <span class="work-number">02</span>
 
           <div class="work-body">
+
             <h3>Don't Fret</h3>
 
-            <p class="work-desc">
-              Gameplay programming on a title published by
-              Behaviour Interactive.
+            <p class="work-outcome">
+              Contributed gameplay programming to a commercial
+              horror game co-published by Behaviour Interactive
+              and Digital Pajamas.
             </p>
+
+            <p class="work-desc">
+              One year of gameplay development for Scary Kid Studios.
+            </p>
+
+            <p class="work-tech">
+              Unreal Engine 5 · C++ · Blueprints
+            </p>
+
           </div>
 
-          <span class="work-kind">GAMEPLAY PROGRAMMER</span>
+          <div class="work-meta">
+
+            <span class="work-kind">
+              GAMEPLAY PROGRAMMER
+            </span>
+
+            <span class="work-date">
+              2025 — 2026
+            </span>
+
+          </div>
+
         </article>
 
         <!-- Trash Wars -->
 
-        <article class="work-item">
+        <article class="work-item" id="trash-wars">
+
           <span class="work-number">03</span>
 
           <div class="work-body">
+
             <h3>Trash Wars</h3>
 
-            <p class="work-desc">
-              Independently developed and released a
-              commercial game on Steam.
+            <p class="work-outcome">
+              Independently developed and shipped a commercial
+              game on Steam.
             </p>
+
+            <p class="work-desc">
+              Took the game from initial prototype through
+              commercial release as the sole developer at
+              Particle Games Studio.
+            </p>
+
+            <p class="work-tech">
+              Unreal Engine 5 · C++ · Blueprints
+            </p>
+
           </div>
 
-          <span class="work-kind">SOLO DEVELOPER</span>
+          <div class="work-meta">
+
+            <span class="work-kind">
+              SOLO DEVELOPER
+            </span>
+
+            <span class="work-date">
+              2024 — 2026
+            </span>
+
+          </div>
+
         </article>
 
-        <!-- God Game -->
+        <!-- Menhir -->
 
-        <article class="work-item">
+        <article class="work-item" id="menhir">
+
           <span class="work-number">04</span>
 
           <div class="work-body">
-            <h3>Untitled God Game</h3>
+
+            <h3>Menhir</h3>
+
+            <p class="work-outcome">
+              Built a playable, simulation-driven fantasy
+              god game in Rust.
+            </p>
 
             <p class="work-desc">
-              Custom GPU rendering, procedural worlds,
-              and simulation systems.
+              A 4 km × 4 km procedural world with autonomous
+              villagers, custom GPU rendering, dynamic weather,
+              and settlement simulation. Currently in development.
             </p>
+
+            <p class="work-tech">
+              Bevy · Rust · WGSL · GPU Programming
+            </p>
+
           </div>
 
-          <span class="work-kind">RUST / BEVY</span>
+          <div class="work-meta">
+
+            <span class="work-kind">
+              SOLO DEVELOPER
+            </span>
+
+            <span class="work-date">
+              2026 — Present
+            </span>
+
+          </div>
+
         </article>
 
       </section>
@@ -753,12 +956,14 @@
                aria-labelledby="contact-heading">
 
         <div>
+
           <h2 id="contact-heading">Work with me</h2>
 
           <p>
             Open to contract and full-time opportunities in
             backend engineering, payments, and game development.
           </p>
+
         </div>
 
         <a class="contact-link"
@@ -767,11 +972,15 @@
         </a>
 
       </section>
+
     </main>
 
     <footer>
+
       <span>© 2026 Tyler Scheffler</span>
+
       <span>schefbuilds.dev</span>
+
     </footer>
 
   </div>
